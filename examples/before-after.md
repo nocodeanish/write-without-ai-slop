@@ -71,6 +71,31 @@ Changed:
 - Replaced "let me know your thoughts" with one clear question.
 ```
 
+## Website hero (rewrite)
+
+Before:
+
+```
+Make every workday effortless.
+
+Planboard helps your team stay ahead with one clear workspace.
+
+Create tasks, assign an owner, and set a due date in one place.
+```
+
+After:
+
+```
+Planboard keeps tasks, owners, and due dates in one place.
+
+Create a task, assign an owner, and set a due date.
+```
+
+Changed:
+- Removed the unsupported promise in "Make every workday effortless."
+- Replaced the vague "stay ahead" claim with the product's stated function.
+- Kept all three features: tasks, owners and due dates.
+
 ## Check only
 
 Request: "Check this draft for AI patterns. Do not rewrite it."

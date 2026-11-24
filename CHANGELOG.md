@@ -4,6 +4,8 @@
 
 No change to the skill's rules, so the test results for 0.5.0 still apply.
 
+- Examples: added an invented website hero before/after example (Gaurav01MH).
+
 - README: a "Try it in one minute" block with copyable steps, a link row, an FAQ (free, privacy, limits), a terminal replay of the real `scripts/check_text.py` output, and collapsed long sections. Rebuild the replay with `.github/readme/recording/record.js`.
 - `scripts/check_consistency.py` checks that the version, test counts, links and skill format agree across files. A GitHub Action runs it on every push and pull request.
 - README: added a "Does it work?" section with the test results and their limits, and a "Privacy" section.
