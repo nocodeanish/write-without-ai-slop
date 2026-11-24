@@ -1,0 +1,18 @@
+[
+  {
+    "id": "v6-01",
+    "name": "non-english-german",
+    "mode": "rewrite",
+    "request": "Tidy this.",
+    "must": [
+      "Keeps booking number 4821 and Dienstag unchanged",
+      "Does not apply English-only tell rules to the German wording"
+    ],
+    "must_not": [
+      "Translates the text into English",
+      "Changes or adds facts"
+    ],
+    "script": true,
+    "input": "inputs/g01-non-english-german.txt"
+  }
+]

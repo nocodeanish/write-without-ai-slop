@@ -31,7 +31,8 @@ NAME = "write-without-ai-slop"
 MAX_SKILL_LINES = 150  # CONTRIBUTING.md: SKILL.md stays under 150 lines
 MAX_DESCRIPTION = 1024  # agentskills.io specification
 MAX_NAME = 64
-EVAL_SETS = ("evals", "evals/v2", "evals/v3", "evals/v4")
+EVAL_SETS = ("evals", "evals/v2", "evals/v3", "evals/v4", "evals/v6")
+RESULT_SETS = EVAL_SETS[:-1]
 ART_DIR = ".github/readme"
 MAX_ART_BYTES = 250_000  # the art is part of every clone and every install
 LINK = re.compile(r"\[[^\]]*\]\(([^)\s]+)\)|(?:src|href)=\"([^\"]+)\"")
@@ -147,30 +148,41 @@ def check_eval_counts(root):
             if path and not (root / folder / path).exists():
                 problems.append(f"{folder}/cases.json: case {case['id']} input {path} is missing")
     total = sum(counts)
+    result_total = sum(counts[:len(RESULT_SETS)])
     stated = re.search(r"(\d+) invented test cases in (\w+) sets", readme)
     if not stated:
         problems.append("evals/README.md: no '<N> invented test cases in <N> sets' sentence")
     else:
         if int(stated.group(1)) != total:
             problems.append(f"evals/README.md: says {stated.group(1)} cases, files hold {total}")
+        set_count = (
+            int(stated.group(2))
+            if stated.group(2).isdigit()
+            else {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5}.get(stated.group(2))
+        )
+        if set_count != len(EVAL_SETS):
+            problems.append(f"evals/README.md: says {stated.group(2)} sets, files hold {len(EVAL_SETS)}")
     original = re.search(r"\((\d+) cases\)", readme)
     if original and int(original.group(1)) != counts[0]:
         problems.append(f"evals/README.md: says {original.group(1)} original cases, files hold {counts[0]}")
     each = re.search(r"\((\d+) each\)", readme)
-    if each and any(int(each.group(1)) != n for n in counts[1:]):
-        problems.append(f"evals/README.md: says {each.group(1)} each for later sets, files hold {counts[1:]}")
+    if each and any(int(each.group(1)) != n for n in counts[1:len(RESULT_SETS)]):
+        problems.append(f"evals/README.md: says {each.group(1)} each for v2-v4, files hold {counts[1:len(RESULT_SETS)]}")
+    new_set = re.search(r"v6/? \((\d+) case\)", readme)
+    if new_set and int(new_set.group(1)) != counts[-1]:
+        problems.append(f"evals/README.md: says v6 has {new_set.group(1)} case(s), files hold {counts[-1]}")
     header = re.search(r"Total of (\d+)", readme)
-    if header and int(header.group(1)) != total:
-        problems.append(f"evals/README.md: table header says {header.group(1)}, files hold {total}")
+    if header and int(header.group(1)) != result_total:
+        problems.append(f"evals/README.md: table header says {header.group(1)}, evaluated sets hold {result_total}")
     rows = re.findall(r"^\| (?!Model|---)([^|]+)\|((?:\s*\d+\s*\|){5})\s*$", readme, re.M)
     for model, cells in rows:
         numbers = [int(n) for n in re.findall(r"\d+", cells)]
         if sum(numbers[:-1]) != numbers[-1]:
             problems.append(f"evals/README.md: {model.strip()} row does not add up")
     answers = re.search(r"all (\d+) answers", readme)
-    if answers and rows and int(answers.group(1)) != total * len(rows):
+    if answers and rows and int(answers.group(1)) != result_total * len(rows):
         problems.append(
-            f"evals/README.md: says {answers.group(1)} answers, {len(rows)} models x {total} cases = {total * len(rows)}"
+            f"evals/README.md: says {answers.group(1)} answers, {len(rows)} models x {result_total} evaluated cases = {result_total * len(rows)}"
         )
     return problems
 
