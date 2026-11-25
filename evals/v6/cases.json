@@ -1,0 +1,292 @@
+[
+ {
+  "id": "z01",
+  "name": "bug-no-repro",
+  "mode": "check",
+  "request": "Check this bug ticket before I file it.",
+  "must": [
+   "Says the ticket gives no steps to reproduce",
+   "Says there is no expected result and no actual result",
+   "Points out that vague words like 'weird' and 'a big problem' say nothing checkable",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Invents steps, error messages or screens that the ticket does not state",
+   "Returns a rewritten text"
+  ],
+  "script": false,
+  "input": "inputs/z01-bug-no-repro.txt"
+ },
+ {
+  "id": "z02",
+  "name": "fixed-claim",
+  "mode": "rewrite",
+  "request": "Rewrite this ticket comment. Facts: I changed the export timeout from 30 to 90 seconds in the config file, but I have not run the export or any test since the change. I will paste it as it is.",
+  "must": [
+   "Removes the claim that it is fixed and works perfectly",
+   "States only what was done: timeout changed from 30 to 90 seconds in config",
+   "Says plainly that it is not yet checked",
+   "Removes the chatbot style opener and closer"
+  ],
+  "must_not": [
+   "Says or implies that the fix was tested or confirmed",
+   "Asks to close the ticket"
+  ],
+  "script": true,
+  "input": "inputs/z02-fixed-claim.txt"
+ },
+ {
+  "id": "z03",
+  "name": "unverifiable-criteria",
+  "mode": "check",
+  "request": "Check the acceptance criteria in this ticket.",
+  "must": [
+   "Flags 'fast' as not measurable and says what number or limit is missing",
+   "Flags 'intuitive' and 'looks modern' as not verifiable by anyone",
+   "Flags 'works well on all devices' as undefined (which devices, which versions)",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Invents the numbers or device list to fill the gaps",
+   "Returns a rewritten text"
+  ],
+  "script": false,
+  "input": "inputs/z03-unverifiable-criteria.txt"
+ },
+ {
+  "id": "z04",
+  "name": "ids-and-chatbot-wrap",
+  "mode": "rewrite",
+  "request": "Rewrite this comment. Facts: the margin is now 12 mm and I ran the export for three sample tours and the margins looked right. I will paste it as it is.",
+  "must": [
+   "Keeps DOC-77, @lena.brandt and the branch name fix/DOC-77-lighthouse-pdf-margins exactly as written",
+   "Removes the chatbot opener and closer",
+   "Keeps the 12 mm margin and the three sample tours",
+   "Stays short and in the same voice"
+  ],
+  "must_not": [
+   "Changes, shortens or reformats the ticket ID, handle or branch name",
+   "Adds facts such as test results beyond the three sample tours"
+  ],
+  "script": true,
+  "input": "inputs/z04-ids-and-chatbot-wrap.txt"
+ },
+ {
+  "id": "z05",
+  "name": "good-bug-report",
+  "mode": "check",
+  "request": "Check this bug report. Is it ready to file?",
+  "must": [
+   "Finds nothing or almost nothing to fix",
+   "Says the report is already specific and complete (steps, expected, actual, environment)",
+   "Does not flag its length or ask for more detail",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Invents problems to look useful",
+   "Suggests adding sections that are already there",
+   "Returns a rewritten text"
+  ],
+  "script": false,
+  "input": "inputs/z05-good-bug-report.txt"
+ },
+ {
+  "id": "z06",
+  "name": "four-questions",
+  "mode": "check",
+  "request": "Check this comment I am about to post on the ticket.",
+  "must": [
+   "Notes that the comment asks several unrelated things at once",
+   "Identifies the last sentence as the real ask (a decision on the telescope slot) and says it is buried",
+   "Suggests the real ask should come first or the other questions should be split out",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Answers the questions itself",
+   "Invents who should answer or a deadline",
+   "Returns a rewritten text"
+  ],
+  "script": false,
+  "input": "inputs/z06-four-questions.txt"
+ },
+ {
+  "id": "z07",
+  "name": "swap-the-name",
+  "mode": "check",
+  "request": "Check this paragraph from a proposal for Example Loomworks.",
+  "must": [
+   "Says the paragraph is generic and would work for any client if the name were swapped",
+   "Flags the 40% figure as having no source",
+   "Says what specific detail about the client is missing without inventing it",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Invents facts about Example Loomworks or a source for the 40%",
+   "Returns a rewritten text"
+  ],
+  "script": false,
+  "input": "inputs/z07-swap-the-name.txt"
+ },
+ {
+  "id": "z08",
+  "name": "scope-timeline-next-steps",
+  "mode": "check",
+  "request": "Check the scope, timeline and next steps in this proposal.",
+  "must": [
+   "Says the scope has no exclusions or says what is out of scope",
+   "Says the timeline has phases but no dates",
+   "Says the next steps have no named person and no date",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Invents dates, names or exclusions",
+   "Returns a rewritten text"
+  ],
+  "script": false,
+  "input": "inputs/z08-scope-timeline-next-steps.txt"
+ },
+ {
+  "id": "z09",
+  "name": "unsourced-stat",
+  "mode": "rewrite",
+  "request": "Rewrite this proposal paragraph. Facts: the 22% came from the client's own pilot at the Example Observatory in spring 2026. The 4x figure has no source. I will paste it as it is.",
+  "must": [
+   "Keeps the 22% and attributes it to the client's spring 2026 pilot",
+   "Removes the 4x claim or marks it as unsourced instead of keeping it as fact",
+   "Cuts the hype words but keeps the meaning"
+  ],
+  "must_not": [
+   "Invents a source for the 4x figure",
+   "Adds new numbers"
+  ],
+  "script": true,
+  "input": "inputs/z09-unsourced-stat.txt"
+ },
+ {
+  "id": "z10",
+  "name": "us-spelling-uk-client",
+  "mode": "check",
+  "request": "Check this paragraph for the Example Harbour Trust proposal. The client is in the UK.",
+  "must": [
+   "Flags the US spellings (organize, color, center, license, behavior) as wrong for a UK client",
+   "Gives the UK forms (organise, colour, centre, licence, behaviour)",
+   "Does not change the meaning or add content",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Flags 'program' or the date wording as errors without reason",
+   "Returns a rewritten text"
+  ],
+  "script": false,
+  "input": "inputs/z10-us-spelling-uk-client.txt"
+ },
+ {
+  "id": "z11",
+  "name": "complete-proposal-section",
+  "mode": "rewrite",
+  "request": "Rewrite this proposal section if it needs it. I will paste it as it is.",
+  "must": [
+   "Returns the section unchanged or almost unchanged, with no notes",
+   "Keeps every date, the exclusions and the named person exactly"
+  ],
+  "must_not": [
+   "Adds filler, hedges or new content",
+   "Changes the dates or the name"
+  ],
+  "script": true,
+  "input": "inputs/z11-complete-proposal-section.txt",
+  "similarity_min": 0.9
+ },
+ {
+  "id": "z12",
+  "name": "three-names",
+  "mode": "check",
+  "request": "Check this paragraph from a proposal.",
+  "must": [
+   "Notes that the same deliverable is called three different names",
+   "Lists the three names (visitor guide, tour handbook, walkthrough pack)",
+   "Recommends picking one name and using it everywhere",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Decides that they are three different deliverables",
+   "Invents new deliverables",
+   "Returns a rewritten text"
+  ],
+  "script": false,
+  "input": "inputs/z12-three-names.txt"
+ },
+ {
+  "id": "z13",
+  "name": "long-but-dense-email",
+  "mode": "check",
+  "request": "Check this email before I send it to the mill team.",
+  "must": [
+   "Flags nothing, or says there is nothing to fix",
+   "Does not flag the length of the email",
+   "Does not suggest cuts or merging paragraphs",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Invents problems or asks for more detail",
+   "Says the email is too long",
+   "Returns a rewritten text"
+  ],
+  "script": false,
+  "input": "inputs/z13-long-but-dense-email.txt"
+ },
+ {
+  "id": "z14",
+  "name": "padded-reply",
+  "mode": "rewrite",
+  "request": "Rewrite this reply. Facts: the repair costs 85 and takes 3 working days, the replacement bell costs 12, and the shop is closed on Mondays. I will paste it as it is.",
+  "must": [
+   "Removes the restated question and the closing summary",
+   "Removes the definition of a bell or other obvious term",
+   "Keeps 85, 3 working days, 12 and the Monday closure",
+   "Result is clearly shorter"
+  ],
+  "must_not": [
+   "Adds numbers or details not in the facts",
+   "Removes any of the real figures"
+  ],
+  "script": true,
+  "input": "inputs/z14-padded-reply.txt"
+ },
+ {
+  "id": "z15",
+  "name": "announcing-description",
+  "mode": "check",
+  "request": "Check this ticket description.",
+  "must": [
+   "Flags the sentences that announce what the description will cover",
+   "Flags the closing sentences that summarise the description",
+   "Identifies the two real sentences (rotating lamp stops at about 40 degrees, since the 12 November update) as the content to keep",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Invents causes or steps",
+   "Returns a rewritten text"
+  ],
+  "script": false,
+  "input": "inputs/z15-announcing-description.txt"
+ },
+ {
+  "id": "z16",
+  "name": "readme-with-filler",
+  "mode": "rewrite",
+  "request": "Rewrite this README section. I will paste it as it is.",
+  "must": [
+   "Removes the filler sentence 'Following these steps carefully is very important for a good result'",
+   "Keeps every step, command, number and filename",
+   "Returns only the README section, with no notes"
+  ],
+  "must_not": [
+   "Merges, reorders or paraphrases the steps",
+   "Removes any command or setting"
+  ],
+  "script": true,
+  "input": "inputs/z16-readme-with-filler.txt",
+  "similarity_min": 0.8
+ }
+]

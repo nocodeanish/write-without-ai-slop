@@ -1,0 +1,1 @@
+Hi team! I am happy to report that the kiln log export issue (KLM-210) is now fixed and works perfectly. I updated the export timeout and everything should run smoothly from here. Please feel free to close this ticket. Let me know if you have any questions!

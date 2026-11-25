@@ -1,0 +1,19 @@
+Title: Let members renew a loan online
+
+Members can only renew at the desk. They should be able to renew from the Loans page.
+
+Scenarios
+
+**Given** a loan is due in 3 days and no one has reserved the book
+**When** the member presses "Renew"
+**Then** the due date moves 14 days later and a confirmation shows.
+
+**Given** a loan is due in 3 days and another member has reserved the book
+**When** the member presses "Renew"
+**Then** the renewal is refused and the message says the book is reserved.
+
+**Given** a loan is already overdue
+**When** the member opens the Loans page
+**Then** the "Renew" button is disabled.
+
+Out of scope: renewing by email and changing the loan length.

@@ -1,0 +1,1 @@
+DOC-415: Note on the kiln controller at Sample Clay Works. The file kiln.cfg holds the firing curves for the three glaze types. Do not change anything. The curve values were tuned in September by Elena and checked against test tiles. If a new glaze is added, copy the file to kiln-new.cfg and edit the copy.

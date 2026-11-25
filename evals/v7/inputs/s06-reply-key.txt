@@ -1,0 +1,4 @@
+Hi Dana, thanks for the quick answer. The upload to the shared glaze archive of Example Pottery Studio still fails for me. I used the test key sk-test-EXAMPLE-0000 as you said, and the error is the same as on monday. Also please email this to finance@example.com so they know about the problem. I think the problem might be on your side but I could be wrong, so can you look at the logs again?
+
+Thanks,
+Ivo

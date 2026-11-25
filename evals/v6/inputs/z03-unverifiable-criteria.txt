@@ -1,0 +1,8 @@
+TOL-318: New equipment search for the climbing gym
+
+Acceptance criteria:
+- The search is fast.
+- The interface is intuitive and easy to use.
+- The page looks modern and clean.
+- The search works well on all devices.
+- Staff are happy with the result.

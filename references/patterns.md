@@ -109,3 +109,12 @@ Five posts from one run that open with the same kind of line, run the same lengt
 - Replacing long dashes with a colon in every sentence.
 - Turning every sentence short to avoid rhythm. That makes stacked fragments.
 - Adding an invented detail to sound human. That makes invented content.
+
+## 18. Padding
+
+Sentences that give the reader nothing new: the question restated, "here is what I will cover", a summary of what was just said, background the reader already has.
+
+- Test: if the sentence were cut, what would the reader lose? If the answer is nothing, flag it. A long text is not padding. Length alone proves nothing.
+- Before: "Thanks for asking about the refund. A refund is when money is returned to you. We have issued your refund of 40 euros. In summary, your refund of 40 euros has been issued."
+- After: "We issued your refund of 40 euros." (Keep every fact the original had.)
+- Rule: cut the sentence, not the fact. Do not add content to fill the space.

@@ -1,0 +1,5 @@
+Scope: We will design and install a new tracking system for the Sample Pottery Studio kilns, including software setup, sensor installation and staff training.
+
+Timeline: Phase 1 is discovery. Phase 2 is build. Phase 3 is installation. Phase 4 is training and handover.
+
+Next steps: We will schedule a kickoff call, confirm the requirements and agree the final plan.

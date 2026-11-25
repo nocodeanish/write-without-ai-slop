@@ -1,0 +1,1 @@
+Great question @riley! I looked into PLAT-55. The report page shows ERR_TIMEOUT_504 when the report call takes longer than 10 seconds. The change is on branch fix/report-timeout. I hope this helps, and please don't hesitate to reach out if you need anything else!

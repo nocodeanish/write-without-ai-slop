@@ -63,6 +63,21 @@ No source discusses AI-written chat messages, so the AI-specific items are infer
 - Equal Experts public Slack guide, CC-BY-SA-4.0 (real-use): "Respect the amount of information anyone can tolerate reading." Prefer a thread in large channels, link to a message instead of copying it, use @channel and @here only for high-priority items.
 - Grammarly, 2024-01-29, and Slab, 2020-03-04 (third party, opinion, low): combine follow-ups, use threads, @here and @channel only for urgent items.
 
+### Padding (medium for the idea, low for the test)
+
+- Australian Style Manual, "Emails and letters", 2024-12-20 (official, already listed under email): "write only what the recipient needs to know", state the main idea first.
+- HBR, 2025-09-22 (real-use, already listed above): "workslop", content that "appears polished but lacks real substance".
+- hardikpandya/stop-slop SKILL.md, read 2026-11-25 (real-use): cuts filler phrases and scores "Density: anything cuttable?". It works at phrase level. We found no rule in it that keeps a long text whose paragraphs all carry something.
+- The test "what would the reader lose if this were cut" and the rule that length alone is not a tell are inference.
+
+### Tickets and issue comments (low, all inference)
+
+No source measured AI tells in tickets, so the whole page is inference. It checks for these problems: a result stated with nothing behind it, a missing way to reproduce a bug, criteria nobody can check, and several questions in one comment. The "leave alone" list exists because the "same shape everywhere" rule would otherwise flag normal lists and tables.
+
+### Proposals (low, all inference)
+
+One LinkedIn post (November 2026, author unknown, not linked) listed twelve signs that a proposal was written by AI. It is a list of ideas, not evidence, and its wording is not copied. Seven of the twelve were already in the skill: vague wording, rotating names, regular rhythm, generic text, unsourced figures, equal section lengths and claims about the client. Five are new on the proposals page: the client's problem repeated in longer words, a scope with no exclusions, a timeline with no dates, next steps with no person or date, and spelling that differs from the reader's. The swap test is a new way to check the generic-text sign. All of it is a practitioner's opinion until a study says otherwise.
+
 ## AI detectors
 
 The skill never judges who wrote a text. Liang et al., arXiv 2304.02819 (research): seven detectors flagged 61.22% of TOEFL essays by non-native English writers as AI, though people wrote them.
@@ -73,4 +88,4 @@ Email and Slack rest on thin evidence. The X and LinkedIn pages lean on news rep
 
 ## Prior work
 
-We read [blader/humanizer](https://github.com/blader/humanizer) and [conorbronsdon/avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing) and wrote our lists fresh.
+We read [blader/humanizer](https://github.com/blader/humanizer) and [conorbronsdon/avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing) and wrote our lists fresh. On 2026-11-25 we also saw two skills on GitHub: the ticket-authoring skill by rampstackco and the upwork-proposal-writing-skill by fahadqaseem. We read only their titles and descriptions. They teach how to write a ticket or a proposal. This skill only lists what not to do and does not teach a structure.

@@ -1,0 +1,11 @@
+Title: Photo upload fails for files over 5 MB
+
+Steps
+1. Open the Gallery page on Firefox 120.
+2. Press "Add photo" and choose a 7 MB JPEG.
+3. Press "Upload".
+
+Expected: the photo appears in the gallery.
+Actual: a red bar says "Upload failed" and nothing is saved. A 3 MB file works.
+
+The server log shows a 413 response at 10:42 on 21 November.

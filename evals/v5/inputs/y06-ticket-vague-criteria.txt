@@ -1,0 +1,6 @@
+Acceptance criteria
+
+- The search page returns results quickly.
+- The map looks good on all devices.
+- Users find the new sort order intuitive.
+- The print view works well.

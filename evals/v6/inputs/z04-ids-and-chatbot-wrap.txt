@@ -1,0 +1,1 @@
+Great question! I would be happy to give you an update on DOC-77. @lena.brandt, I pushed the change to the branch fix/DOC-77-lighthouse-pdf-margins. The PDF margins for the tour sheets are now 12 mm, and I ran the export for three sample tours. I hope this helps clarify where things stand! Please do not hesitate to reach out if you need anything else.

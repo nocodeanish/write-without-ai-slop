@@ -1,0 +1,5 @@
+Title: Save button sometimes does nothing
+
+Hi team! Great news, this is a really important issue that affects our users in a big way. The save button sometimes stops working. It is caused by the cache, so it should be fixed soon.
+
+Working on it and will update shortly. Let me know if you have any questions!

@@ -1,0 +1,7 @@
+Title: Importer skips rows with an empty price
+
+The importer reads the supplier file and adds each row to the product list. When the price cell is empty, the loader skips the row without a message.
+
+- Show a warning for each skipped row.
+- Keep the rows that have a price.
+- The ingest tool should print the number of skipped rows at the end.
