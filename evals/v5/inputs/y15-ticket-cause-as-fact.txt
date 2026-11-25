@@ -1,0 +1,1 @@
+Great news, I found it! The bug is definitely caused by the proxy timing out at 30 seconds, and everything points to this being the only cause. I'm confident this will fix all the failed exports. Hope this helps!

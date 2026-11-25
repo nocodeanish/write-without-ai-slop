@@ -1,0 +1,11 @@
+Title: Spoke count shows 0 after saving a repair job on the Example Cycle Works workshop tablet
+
+Steps:
+1. Open the workshop tablet app (v2.4.1, Android 13) and tap New Repair.
+2. Choose wheel truing and enter 36 in Spoke count.
+3. Tap Save.
+
+Expected: the job list shows 36 in the Spoke count column.
+Actual: the job list shows 0. Reopening the job shows 36 again, so the value is stored but not displayed in the list.
+
+Happens every time on the two tablets in the shop. It does not happen in the browser version. Screenshot attached: job-list-0.png.

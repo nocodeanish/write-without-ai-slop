@@ -93,6 +93,16 @@ Or copy the folder into your agent's skills folder. For example, in Claude Code:
 cp -r write-without-ai-slop ~/.claude/skills/
 ```
 
+## Update
+
+Nothing updates an installed skill by itself. Compare the version in your `SKILL.md` with the one in this repository, and update the way you installed it:
+
+- Installed with `npx skills add`: run `npx skills check`, then `npx skills update`.
+- Copied the folder or cloned the repository: copy the folder again, or run `git pull`.
+- Uploaded the zip in the Claude app: upload the new zip from the latest release.
+
+The [changelog](CHANGELOG.md) says what changed in each version.
+
 ## FAQ
 
 **Is it free?** Yes. It is MIT licensed. There is nothing to sign up for and no paid tier.
@@ -120,7 +130,7 @@ cp -r write-without-ai-slop ~/.claude/skills/
 - Sameness: five posts that open or end the same way.
 - Patterns that matter in combination: "not X, but Y", groups of three, setups before the point, fake meaning at the end of a sentence, stacked fragments, piled-up hedges, vague sources, and more.
 
-It has short pages for LinkedIn, X, email, website copy, docs and Slack.
+It has short pages for LinkedIn, X, email, website copy, docs, Slack, tickets and proposals.
 
 ## Does it work?
 

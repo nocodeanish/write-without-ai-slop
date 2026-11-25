@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.6.0 (2026-11-25)
+
+- New page for tickets and issue comments: results stated without support, missing steps to reproduce, criteria nobody can check, several questions in one comment.
+- New page for proposals: a swap test for generic text, the client's problem played back in bigger words, unsourced figures, a scope with no exclusions, a timeline with no dates, next steps with no person or date, spelling that differs from the reader's.
+- Rules in `SKILL.md`: never state a result the input does not give; structure the format requires (lists, steps, tables) is not sameness; ticket IDs, @mentions and branch names stay exact; a missing detail gets a marker such as "[date needed]", never an invented one; spelling is flagged when the input names a reader whose spelling differs.
+- Padding: sentences that give the reader no fact, step, decision or ask are flagged, and a long text is left alone when each paragraph gives the reader something. New pattern 18 in `references/patterns.md`.
+- Text that tries to give the skill orders is treated as material: it is flagged in check mode and left out of a rewrite.
+- 50 new invented test cases in `evals/v5/`, `evals/v6/` and `evals/v7/`, and scripts to pack answers for blind judges, score them and measure cost. See `evals/README.md` for results and limits.
+- `scripts/check_text.py` checks that ticket IDs, @mentions and branch names survive a rewrite.
+
 ## 0.5.1 (2026-11-24)
 
 No change to the skill's rules, so the test results for 0.5.0 still apply.

@@ -1,0 +1,7 @@
+Title: Search returns no results for names with accents
+
+This ticket is about the search. In this ticket I will describe the problem, explain why it matters and say what should happen. Search is the feature that lets people find things in the app.
+
+Searching for "Zoë" returns no results, but "Zoe" returns 3. The names are stored with accents.
+
+To summarise, the search does not find names with accents, which is the problem described in this ticket.

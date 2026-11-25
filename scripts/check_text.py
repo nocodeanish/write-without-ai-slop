@@ -12,6 +12,7 @@ machine can check exactly:
   urls      every URL in OUTPUT is also in ORIGINAL
   code      every fenced code block in ORIGINAL appears unchanged in OUTPUT
   quotes    every double-quoted passage of 3+ words in ORIGINAL appears in OUTPUT
+  ids       every ticket ID (ABC-123), @mention and branch name (fix/name) in ORIGINAL appears in OUTPUT
   dashes    no paragraph in OUTPUT has more than one em or en dash
   leftovers no chatbot leftover phrase appears in OUTPUT
   residue   no tool residue such as utm_source=chatgpt.com in OUTPUT
@@ -31,6 +32,9 @@ NUMBER = re.compile(r"\d[\d,.]*%?")
 URL = re.compile(r"https?://[^\s)\]>\"']+")
 FENCE = re.compile(r"```.*?```", re.DOTALL)
 QUOTE = re.compile(r"[\"“]([^\"”]{12,}?)[\"”]")
+TICKET_ID = re.compile(r"\b[A-Z][A-Z0-9]+-\d+\b")
+MENTION = re.compile(r"(?<![\w.])@[A-Za-z][\w-]*")
+BRANCH = re.compile(r"\b(?:fix|feature|feat|chore|hotfix|bugfix|release)/[\w./-]+")
 
 LEFTOVERS = [
     "certainly!",
@@ -77,6 +81,18 @@ def check(original, output, allow_dashes=False, quote_source=None):
     for quote in QUOTE.findall(original if quote_source is None else quote_source):
         if len(quote.split()) >= 3 and quote not in output:
             findings.append("quotes: changed or missing: " + quote[:60])
+
+    # A ticket ID inside a branch name does not count as a standalone ID.
+    plain_original = BRANCH.sub(" ", original)
+    plain_output = BRANCH.sub(" ", output)
+    for pattern, src, out in (
+        (TICKET_ID, plain_original, plain_output),
+        (MENTION, original, output),
+        (BRANCH, original, output),
+    ):
+        lost = set(pattern.findall(src)) - set(pattern.findall(out))
+        if lost:
+            findings.append("ids: changed or missing: " + ", ".join(sorted(lost)))
 
     if not allow_dashes:
         for i, paragraph in enumerate(re.split(r"\n\s*\n", output), start=1):

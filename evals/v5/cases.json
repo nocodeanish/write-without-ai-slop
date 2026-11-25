@@ -1,0 +1,423 @@
+[
+ {
+  "id": "y01",
+  "name": "ticket-bug-no-repro",
+  "mode": "check",
+  "request": "Check this ticket for AI patterns and gaps. Do not rewrite it.",
+  "must": [
+   "Flags that there are no steps to reproduce, no expected result and no actual result",
+   "Flags the cause guess written as known, or the empty status line",
+   "Each finding quotes a line",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Returns a rewritten ticket",
+   "Invents reproduction steps, a browser or a cause"
+  ],
+  "script": false,
+  "input": "inputs/y01-ticket-bug-no-repro.txt"
+ },
+ {
+  "id": "y02",
+  "name": "ticket-fix-not-confirmed",
+  "mode": "rewrite",
+  "request": "Tighten this comment for the ticket. Facts: I changed the retry limit from 3 to 5 in PR #142. I have not checked whether it fixes the import problem.",
+  "must": [
+   "Keeps PR #142, 3 and 5",
+   "Does not say the problem is fixed, gone or working",
+   "May say it has not been checked"
+  ],
+  "must_not": [
+   "Says fixed, solved, gone, works perfectly or working",
+   "Adds a new fact such as a cause, a date or a person"
+  ],
+  "script": true,
+  "input": "inputs/y02-ticket-fix-not-confirmed.txt"
+ },
+ {
+  "id": "y03",
+  "name": "ticket-scenario-blocks",
+  "mode": "check",
+  "request": "Check this ticket for AI patterns. Do not rewrite it.",
+  "must": [
+   "Leaves the Given, When, Then blocks and the bold labels alone",
+   "Says there is little or nothing to fix, or names only a real issue such as the opening line",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Flags the repeated Given/When/Then shape, the bold labels or the equal block length as sameness",
+   "Returns a rewritten ticket"
+  ],
+  "script": false,
+  "input": "inputs/y03-ticket-scenario-blocks.txt"
+ },
+ {
+  "id": "y04",
+  "name": "ticket-three-questions",
+  "mode": "rewrite",
+  "request": "Fix this comment. I will paste it as it is, so give me only the comment.",
+  "must": [
+   "Returns only the comment, no notes",
+   "Keeps @alex and PLAT-218",
+   "Removes the thank-you opener and the closer",
+   "Puts the first question before the background",
+   "Keeps all three questions"
+  ],
+  "must_not": [
+   "Adds a Changed list",
+   "Adds a new fact"
+  ],
+  "script": true,
+  "input": "inputs/y04-ticket-three-questions.txt"
+ },
+ {
+  "id": "y05",
+  "name": "ticket-ids-kept",
+  "mode": "rewrite",
+  "request": "Clean up this comment. I will paste it as it is.",
+  "must": [
+   "Returns only the comment",
+   "Keeps PLAT-55, @riley, fix/report-timeout and ERR_TIMEOUT_504 exactly",
+   "Removes the chatbot opener and closer"
+  ],
+  "must_not": [
+   "Changes or drops an ID, a handle, a branch name or the error text",
+   "Adds a Changed list"
+  ],
+  "script": true,
+  "input": "inputs/y05-ticket-ids-kept.txt"
+ },
+ {
+  "id": "y06",
+  "name": "ticket-vague-criteria",
+  "mode": "check",
+  "request": "Check these acceptance criteria. Do not rewrite them.",
+  "must": [
+   "Flags that no criterion can be checked (no number, no state, no case)",
+   "Quotes the lines it flags",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Returns rewritten criteria",
+   "Invents a threshold such as 2 seconds or a device list"
+  ],
+  "script": false,
+  "input": "inputs/y06-ticket-vague-criteria.txt"
+ },
+ {
+  "id": "y07",
+  "name": "proposal-generic-check",
+  "mode": "check",
+  "request": "Check this proposal paragraph for AI patterns. Do not rewrite it. It is for Example Garden Centres, a three-site chain.",
+  "must": [
+   "Flags that the paragraph could be sent to any company by swapping the name",
+   "Flags the problem played back in bigger words with nothing the client said",
+   "Flags the unsourced figure",
+   "Each finding quotes a line",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Returns a rewritten proposal",
+   "Invents a fact about Example Garden Centres"
+  ],
+  "script": false,
+  "input": "inputs/y07-proposal-generic-check.txt"
+ },
+ {
+  "id": "y08",
+  "name": "proposal-scope-timeline-gaps",
+  "mode": "check",
+  "request": "Check this proposal for gaps a client would notice. Do not rewrite it.",
+  "must": [
+   "Flags that the scope never says what is not included",
+   "Flags that the timeline has phases with no dates or durations",
+   "Flags that next steps name no person and no date",
+   "Each finding quotes a line",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Returns a rewritten proposal",
+   "Invents exclusions, dates or a person"
+  ],
+  "script": false,
+  "input": "inputs/y08-proposal-scope-timeline-gaps.txt"
+ },
+ {
+  "id": "y09",
+  "name": "proposal-figures-source",
+  "mode": "rewrite",
+  "request": "Fix this paragraph for the proposal. I will paste it as it is. Facts: the 40% comes from the client's own pilot in October. I have no source for the 70%.",
+  "must": [
+   "Keeps the 40% and the October pilot",
+   "Cuts the 70% claim or marks it \"[source needed]\"",
+   "Returns only the paragraph"
+  ],
+  "must_not": [
+   "Keeps the 70% claim as a plain fact",
+   "Adds a new figure, source or study",
+   "Adds a Changed list"
+  ],
+  "script": true,
+  "input": "inputs/y09-proposal-figures-source.txt"
+ },
+ {
+  "id": "y10",
+  "name": "proposal-uk-spelling",
+  "mode": "check",
+  "request": "Check this proposal for a London firm, Sample & Partners Architects. Do not rewrite it.",
+  "must": [
+   "Flags the US spelling (organization, prioritize, color or similar) for a UK reader",
+   "Each finding quotes a line",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Returns a rewritten proposal",
+   "Flags the content as AI-written without naming a pattern"
+  ],
+  "script": false,
+  "input": "inputs/y10-proposal-uk-spelling.txt"
+ },
+ {
+  "id": "y11",
+  "name": "proposal-clean-control",
+  "mode": "rewrite",
+  "request": "Tidy this proposal paragraph.",
+  "must": [
+   "Changes nothing or almost nothing and says so under Left alone"
+  ],
+  "must_not": [
+   "Adds a date, an exclusion or a claim",
+   "Changes 12 May, 9 June, 4 weeks or the names"
+  ],
+  "script": true,
+  "input": "inputs/y11-proposal-clean-control.txt",
+  "similarity_min": 0.9
+ },
+ {
+  "id": "y12",
+  "name": "ticket-bug-complete-control",
+  "mode": "check",
+  "request": "Check this ticket for AI patterns and gaps. Do not rewrite it.",
+  "must": [
+   "Says the ticket is clear, or names at most a small real issue",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Flags the steps, the expected result or the actual result as missing",
+   "Flags the numbered steps as sameness",
+   "Returns a rewritten ticket"
+  ],
+  "script": false,
+  "input": "inputs/y12-ticket-bug-complete-control.txt"
+ },
+ {
+  "id": "y13",
+  "name": "ticket-status-no-fact",
+  "mode": "rewrite",
+  "request": "Tighten this status comment. I will paste it as it is. Facts: I reproduced the bug on Firefox 120. I have not found the cause. No fix yet.",
+  "must": [
+   "Keeps Firefox 120",
+   "Says the bug is reproduced and the cause is not found",
+   "Returns only the comment"
+  ],
+  "must_not": [
+   "Names a cause",
+   "Says the fix is close, almost done or in progress",
+   "Adds a date or a person",
+   "Adds a Changed list"
+  ],
+  "script": true,
+  "input": "inputs/y13-ticket-status-no-fact.txt"
+ },
+ {
+  "id": "y14",
+  "name": "ticket-three-names",
+  "mode": "check",
+  "request": "Check this ticket for AI patterns. Do not rewrite it.",
+  "must": [
+   "Flags that one tool is called the importer, the loader and the ingest tool",
+   "Quotes the lines it flags",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Returns a rewritten ticket",
+   "Flags the bullet list as sameness"
+  ],
+  "script": false,
+  "input": "inputs/y14-ticket-three-names.txt"
+ },
+ {
+  "id": "y15",
+  "name": "ticket-cause-as-fact",
+  "mode": "rewrite",
+  "request": "Fix this comment. I will paste it as it is. Facts: I have not confirmed the cause. I suspect the proxy, because the errors start at the proxy's 30-second limit.",
+  "must": [
+   "Keeps 30-second and the proxy",
+   "Says the proxy is suspected, not confirmed",
+   "Returns only the comment"
+  ],
+  "must_not": [
+   "States the proxy as the confirmed cause",
+   "Adds a new fact, a fix or a date",
+   "Adds a Changed list"
+  ],
+  "script": true,
+  "input": "inputs/y15-ticket-cause-as-fact.txt"
+ },
+ {
+  "id": "y16",
+  "name": "proposal-three-names",
+  "mode": "check",
+  "request": "Check this proposal paragraph for AI patterns. Do not rewrite it.",
+  "must": [
+   "Flags that one thing is called the pack, the deliverable and the output",
+   "Quotes the lines it flags",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Returns a rewritten proposal",
+   "Invents a fact about the client"
+  ],
+  "script": false,
+  "input": "inputs/y16-proposal-three-names.txt"
+ },
+ {
+  "id": "y17",
+  "name": "proposal-us-spelling-no-reader",
+  "mode": "rewrite",
+  "request": "Tidy this proposal paragraph.",
+  "must": [
+   "Changes nothing or almost nothing and says so under Left alone",
+   "Keeps the US spelling"
+  ],
+  "must_not": [
+   "Changes color, organize or program to UK spelling",
+   "Adds a date, a claim or a name"
+  ],
+  "script": true,
+  "input": "inputs/y17-proposal-us-spelling-no-reader.txt",
+  "similarity_min": 0.9
+ },
+ {
+  "id": "y18",
+  "name": "proposal-problem-played-back",
+  "mode": "check",
+  "request": "Check this paragraph. The client told us only this: their stock sheet has 400 lines and is updated by hand every Friday. Do not rewrite it.",
+  "must": [
+   "Flags that the paragraph repeats the client's problem in bigger words and adds nothing they said",
+   "Quotes the line it flags",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Returns a rewritten paragraph",
+   "Invents a fact about the client's stock or staff"
+  ],
+  "script": false,
+  "input": "inputs/y18-proposal-problem-played-back.txt"
+ },
+ {
+  "id": "y19",
+  "name": "proposal-cover-letter-fake-praise",
+  "mode": "rewrite",
+  "request": "Fix this cover letter for a bid. I will paste it as it is. Facts: the client sells garden tools online. I built a stock sync for a small online shop in 2024. I do not know anything else about the client.",
+  "must": [
+   "Removes the praise about the client's innovation and reputation",
+   "Keeps the garden tools and the 2024 stock sync",
+   "Returns only the letter"
+  ],
+  "must_not": [
+   "Adds a claim about the client's business or growth",
+   "Adds a new result, number or client name",
+   "Adds a Changed list"
+  ],
+  "script": true,
+  "input": "inputs/y19-proposal-cover-letter-fake-praise.txt"
+ },
+ {
+  "id": "y20",
+  "name": "ticket-short-reply-control",
+  "mode": "rewrite",
+  "request": "Tidy this reply.",
+  "must": [
+   "Changes nothing or almost nothing and says so under Left alone"
+  ],
+  "must_not": [
+   "Adds a fact, a cause or a date",
+   "Changes TRK-90 or @sasha"
+  ],
+  "script": true,
+  "input": "inputs/y20-ticket-short-reply-control.txt",
+  "similarity_min": 0.9
+ },
+ {
+  "id": "y21",
+  "name": "long-but-real-control",
+  "mode": "check",
+  "request": "Check this status email for AI patterns and padding. Do not rewrite it.",
+  "must": [
+   "Says the text is specific and nothing needs cutting, or names at most one small real issue",
+   "Does not flag the length",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Flags a paragraph as padding",
+   "Suggests cutting a fact, a date or a number",
+   "Returns a rewritten email"
+  ],
+  "script": false,
+  "input": "inputs/y21-long-but-real-control.txt"
+ },
+ {
+  "id": "y22",
+  "name": "short-padded-rewrite",
+  "mode": "rewrite",
+  "request": "Fix this reply. I will paste it as it is.",
+  "must": [
+   "Keeps 40 euros, 3 March and the 5 working days",
+   "Removes the restated question, the definition of a refund and the closing summary",
+   "Returns only the reply"
+  ],
+  "must_not": [
+   "Adds a new fact, date or promise",
+   "Adds a Changed list",
+   "Drops 40 euros, 3 March or 5 working days"
+  ],
+  "script": true,
+  "input": "inputs/y22-short-padded-rewrite.txt"
+ },
+ {
+  "id": "y23",
+  "name": "padded-ticket-check",
+  "mode": "check",
+  "request": "Check this ticket description for AI patterns and padding. Do not rewrite it.",
+  "must": [
+   "Flags the sentences that restate the title or say what the ticket will cover as padding",
+   "Quotes the lines it flags",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Returns a rewritten ticket",
+   "Invents a fact about the bug"
+  ],
+  "script": false,
+  "input": "inputs/y23-padded-ticket-check.txt"
+ },
+ {
+  "id": "y24",
+  "name": "long-proposal-section-control",
+  "mode": "check",
+  "request": "Check this proposal section for AI patterns and padding. Do not rewrite it.",
+  "must": [
+   "Says the section is specific, or names at most one small real issue",
+   "Does not flag the length",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Flags a paragraph as padding",
+   "Suggests cutting a date, price or exclusion",
+   "Returns a rewritten proposal"
+  ],
+  "script": false,
+  "input": "inputs/y24-long-proposal-section-control.txt"
+ }
+]

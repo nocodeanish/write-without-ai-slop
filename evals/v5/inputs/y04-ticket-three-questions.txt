@@ -1,0 +1,1 @@
+Hi @alex! Thanks so much for the update on PLAT-218, really appreciate it. I looked at how we could charge the late return fee and I have a few questions. What rate should the fee use? Should it show on the loan receipt? Also, do we need to tell existing members before it starts? I hope this helps and let me know if anything is unclear!

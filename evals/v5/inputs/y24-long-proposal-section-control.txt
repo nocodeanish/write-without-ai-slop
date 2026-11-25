@@ -1,0 +1,15 @@
+Scope
+We will build a stock-count sheet for the three shops, import the 400 current lines from your spreadsheet, and train two staff members per shop. The sheet works offline and syncs when the shop's connection is back.
+
+Not included: new shelf labels, any change to the till, and the online shop.
+
+Timeline
+Week 1 (2 to 6 June): import and check the 400 lines with Dana Whitfield.
+Weeks 2 and 3 (9 to 20 June): build the sheet and test it in the largest shop.
+Week 4 (23 to 27 June): train staff and go live in all three shops on Friday 27 June.
+
+Price
+The fixed price is 4,800 euros, paid in two parts: half on 2 June and half on go-live. Changes outside the scope are quoted before any work starts.
+
+Next step
+Please confirm the scope and the 2 June start by Friday 23 May. I will send the contract the same day.
